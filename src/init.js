@@ -1,10 +1,7 @@
 import fs from "fs";
 
 export const args = process.argv.slice(2);
-
-const setting = JSON.parse(fs.readFileSync("setting.json"));
-export const filename = setting.filename;
-export const commands = setting.commands;
+export const filename = "task-list.json";
 
 // 파일이 없으면 생성
 if (!fs.existsSync(filename)) {
