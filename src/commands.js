@@ -66,6 +66,7 @@ export const markDone = (args) => {
 };
 
 export const showTasks = (args) => {
+  // Listing all tasks
   if (args.length === 1) {
     tasks.forEach((element) => {
       console.log(`${element.id} ${element.status} ${element.description}`);
@@ -73,15 +74,13 @@ export const showTasks = (args) => {
     process.exit(0);
   }
 
-  if (!args.length === 2) {
-    console.log("Usage: task-cli list [status]");
-    process.exit(1);
-  }
+  if (!args.length === 2) showError("Usage: task-cli list [status]");
 
   const term = args[1];
   if (!["todo", "in-progress", "done"].some((item) => item === term))
     showError("Usage: task-cli list [status]");
 
+  // List tasks by status
   const statusInTerm = tasks.filter((item) => item.status === term);
   statusInTerm.forEach((element) => {
     console.log(`${element.id} ${element.status} ${element.description}`);

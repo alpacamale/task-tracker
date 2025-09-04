@@ -3,11 +3,11 @@ import fs from "fs";
 export const args = process.argv.slice(2);
 export const filename = "task-list.json";
 
-// 파일이 없으면 생성
+// Create file if not exist
 if (!fs.existsSync(filename)) {
   fs.writeFileSync(filename, "[]");
 }
 
-// data 읽어오기
+// Read tasks from task-list.json
 const data = fs.readFileSync(filename, "utf8");
 export const tasks = JSON.parse(data);
