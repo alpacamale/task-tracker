@@ -74,10 +74,9 @@ export const showTasks = (args) => {
     process.exit(0);
   }
 
-  if (!args.length === 2) showError("Usage: task-cli list [status]");
-
   const term = args[1];
-  if (!["todo", "in-progress", "done"].some((item) => item === term))
+  isValidStatus = ["todo", "in-progress", "done"].includes(term);
+  if (args.length !== 2 || !isValidStatus)
     showError("Usage: task-cli list [status]");
 
   // List tasks by status
