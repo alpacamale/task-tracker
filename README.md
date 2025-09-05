@@ -97,15 +97,15 @@ example:
     "id": 1,
     "description": "Buy groceries and cook dinner",
     "status": "in-progress",
-    "createdAt": "2025-01-05T09:12:33.123Z",
-    "updatedAt": "2025-01-05T10:05:44.456Z"
+    "createdAt": "1757082923960",
+    "updatedAt": "1757082983960"
   },
   {
     "id": 2,
     "description": "Do laundry",
     "status": "todo",
-    "createdAt": "2025-01-05T09:15:12.789Z",
-    "updatedAt": "2025-01-05T09:15:12.789Z"
+    "createdAt": "1757083023960",
+    "updatedAt": "1757083023960"
   }
 ]
 ```
