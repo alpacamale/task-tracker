@@ -3,6 +3,8 @@
 Simple Task Tracker Cli Application.
 Add, update, and delete tasks directly from the command line, and manage their status with ease.
 
+[Loadmap.sh](https://roadmap.sh/projects/task-tracker)
+
 ## 🚀 Features
 
 - Add, update, and delete tasks
