@@ -3,7 +3,8 @@ import { showError } from "./utils.js";
 import fs from "fs";
 
 export const addTask = (args) => {
-  if (args.length !== 2) showError('Usage: task-cli add "foo-bar"');
+  if (args.length !== 2 || args[1] === "")
+    showError('Usage: task-cli add "foo-bar"');
 
   const id = !tasks.length ? 1 : tasks.at(-1).id + 1;
   const task = {
@@ -19,10 +20,11 @@ export const addTask = (args) => {
 };
 
 export const updateTask = (args) => {
-  if (args.length !== 3) showError('Usage: task-cli update [id] "foo-bar"');
+  if (args.length !== 3 || args[2] === "")
+    showError('Usage: task-cli update [id] "foo-bar"');
 
   const index = tasks.findIndex((item) => item.id == args[1]);
-  if (index === -1) showError("task-cli: Id not found");
+  if (index === -1) showError("task-cli: ID not found");
 
   tasks[index].description = args[2];
   tasks[index].updatedAt = Date.now();
@@ -34,7 +36,7 @@ export const deleteTask = (args) => {
   if (args.length !== 2) showError("Usage: task-cli delete [id]");
 
   const index = tasks.findIndex((item) => item.id == args[1]);
-  if (index === -1) showError("task-cli: Id not found");
+  if (index === -1) showError("task-cli: ID not found");
 
   tasks.splice(index, 1);
   fs.writeFileSync(filename, JSON.stringify(tasks));
@@ -45,7 +47,7 @@ export const markInProgress = (args) => {
   if (args.length !== 2) showError("Usage: task-cli mark-in-progress [id]");
 
   const index = tasks.findIndex((item) => item.id == args[1]);
-  if (index === -1) showError("task-cli: Id not found");
+  if (index === -1) showError("task-cli: ID not found");
 
   tasks[index].status = "in-progress";
   tasks[index].updatedAt = Date.now();
@@ -54,10 +56,10 @@ export const markInProgress = (args) => {
 };
 
 export const markDone = (args) => {
-  if (!args.length === 2) showError("Usage: task-cli mark-done [id]");
+  if (args.length !== 2) showError("Usage: task-cli mark-done [id]");
 
   const index = tasks.findIndex((item) => item.id == args[1]);
-  if (index === -1) showError("task-cli: Id not found");
+  if (index === -1) showError("task-cli: ID not found");
 
   tasks[index].status = "done";
   tasks[index].updatedAt = Date.now();
