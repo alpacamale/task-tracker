@@ -110,6 +110,6 @@ example:
 
 ## ✅ Roadmap
 
-- [ ] Add test cases
-- [ ] Add comments
+- [x] Add test cases
+- [x] Add comments
 - [x] Write readme file
